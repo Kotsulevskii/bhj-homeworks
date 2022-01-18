@@ -13,4 +13,4 @@ function changeSize() {
     
      valueCounter.textContent = counter;
 }
- elementClick.onclick = changeSize();
+ elementClick.onclick = changeSize;

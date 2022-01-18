@@ -6,13 +6,13 @@ setInterval(() => {
     if (startNumberTimer === 0) {
     alert("Вы победили в конкурсе!");
     }
-}, 1000);
+}, 1000); 
 
 // Таймер обратного отсчёта #1
-    
-/*setInterval(() => {
-    let startValueTimer = document.getElementById("timer").innerHTML =("00:" + "00:" + "59");
-    let s = startValueTimer.textContent;
+
+setInterval(() => {
+    let startValueTimer = document.getElementById("timer");
+    let s = Number(startValueTimer.textContent) - 1;
 
     function checkTime(i) {
         if (i < 10) {
@@ -27,7 +27,7 @@ setInterval(() => {
     h = checkTime(h);
     m = checkTime(m);
 
-    startValueTimer.textContent = "00:" + "00:" + `${s - 1}`;
+    startValueTimer.innerHTML = "00:" + "00:" + `${s}`;
     if (s === 0) {
     alert("Вы победили в конкурсе!");
     }

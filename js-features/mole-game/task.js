@@ -1,26 +1,26 @@
 let Dead = document.getElementById("dead");
-let counterDead = Number(Dead.textContent);
 let Lost = document.getElementById("lost");
-let counterLost = Number(Lost.textContent);
-
-function getHole(index) {
-        if (index.className.includes('hole_has-mole')) {
-            index.onclick = counterDead++;
-            if (counterDead >= 10) {
-                alert("Победа");
-            }
-            index.textContent = counterDead;
+ 
+for (let i = 1; i <= 9; i++) {
+    function getHole (i) {
+        let holeIndex = document.getElementById(`hole${[i]}`);
+        return holeIndex;
+    };
+    let hole = getHole (i);
+    hole.onclick = function () {
+        if (hole.className.includes("hole_has-mole")) {
+            Dead.innerHTML++;
         } else {
-            counterLost++;
-            if (counterLost >= 5) {
-                alert("Поражение");
-            }
-            index.textContent = counterLost;
-        }
-            
-};
-    
-for (i = 1; i < 9; i++) { 
-    let index = document.getElementById("hole" + `${[i]}`);
-    getHole(index);
+            Lost.innerHTML++;
+        };
+        if (Number(Dead.textContent) === 10) {
+            alert("Вы победили!");
+            Dead.innerHTML = 0;
+            Lost.innerHTML = 0;
+        } else if (Number(Lost.textContent) === 5) {
+            alert("Вы проиграли");
+            Dead.innerHTML = 0;
+            Lost.innerHTML = 0;
+        };
+    };
 };
