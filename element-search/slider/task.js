@@ -28,4 +28,3 @@ arrowLeft.onclick = function () {
 };
 
 
-
